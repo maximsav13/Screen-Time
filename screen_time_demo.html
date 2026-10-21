@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Screen Time Demo</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#000;color:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding:env(safe-area-inset-top) 16px env(safe-area-inset-bottom)}
+main{max-width:430px;margin:0 auto;padding:20px 0 35px}
+.notice{text-align:center;font-size:11px;letter-spacing:1.8px;color:#ffcc66;margin:8px 0 24px}
+h1{font-size:30px;margin:0 0 22px} .switch{display:flex;background:#242426;border-radius:24px;padding:4px;margin-bottom:24px}
+button{font:inherit;cursor:pointer}.switch button{flex:1;border:0;border-radius:22px;padding:12px;color:#fff;background:transparent}.switch button.active{background:#66666b}
+.card{background:#1c1c1e;border-radius:24px;padding:20px 17px;margin-bottom:18px}.muted{color:#a1a1a6}.total{font-size:42px;font-weight:700;letter-spacing:-1px;margin:8px 0 26px}
+.chart{height:125px;display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid #49494d;padding:0 4px}.bar{flex:1;background:#4b4b50;border-radius:5px 5px 0 0}.bar.today{background:#1685f8}.days{display:flex;justify-content:space-between;color:#8e8e93;font-size:12px;margin-top:8px}
+.stats{display:flex;gap:12px;margin-top:30px}.stats>div{flex:1;min-width:0}.stats strong{display:block;margin-top:6px;font-size:15px}
+h2{font-size:21px;margin:22px 0 14px}.app{padding:17px 0;border-bottom:1px solid #39393d}.app:last-child{border-bottom:0}.apphead{display:flex;justify-content:space-between;gap:12px}.duration{color:#aaa}.track{height:5px;background:#55555a;border-radius:5px;margin-top:12px}.fill{height:100%;background:#8e8e93;border-radius:5px}
+footer{color:#8e8e93;font-size:13px;line-height:1.4;margin:14px 0}
+</style>
+</head>
+<body><main>
+<h1>Screen Time</h1>
+<div class="switch"><button id="day" class="active">Day</button><button id="week">Week</button></div>
+<section class="card">
+<div class="muted" id="period">Today · Demo</div><div class="total" id="total">2h 36m</div>
+<div class="chart" aria-label="Illustrative usage chart"><div class="bar" style="height:45%"></div><div class="bar" style="height:72%"></div><div class="bar today" style="height:35%"></div><div class="bar" style="height:20%"></div><div class="bar" style="height:12%"></div><div class="bar" style="height:18%"></div><div class="bar" style="height:10%"></div></div>
+<div class="days"><span>M</span><span>T</span><span>W</span><span>Th</span><span>F</span><span>Sa</span><span>Su</span></div>
+<div class="stats"><div><span style="color:#1685f8">Social</span><strong id="social">2h 1m</strong></div><div><span style="color:#55cbd4">Other</span><strong id="other">21m</strong></div><div><span style="color:#ff9f43">Entertainment</span><strong id="ent">14m</strong></div></div>
+</section>
+<footer>Illustrative data only. This demo is not connected to iOS Screen Time.</footer>
+<h2>Most Used</h2>
+<section class="card">
+<div class="app"><div class="apphead"><span>◩ &nbsp; Real</span><span class="duration">1h 5m</span></div><div class="track"><div class="fill" style="width:90%"></div></div></div>
+<div class="app"><div class="apphead"><span>◎ &nbsp; Instagram</span><span class="duration">48m</span></div><div class="track"><div class="fill" style="width:66%"></div></div></div>
+<div class="app"><div class="apphead"><span>♧ &nbsp; Snapchat</span><span class="duration">36m</span></div><div class="track"><div class="fill" style="width:50%"></div></div></div>
+</section>
+<div class="notice" style="margin-top:22px;margin-bottom:8px">PREVIEW · EXAMPLE DATA</div>
+</main>
+<script>
+const day=document.getElementById('day'),week=document.getElementById('week');
+day.onclick=()=>{day.classList.add('active');week.classList.remove('active');document.getElementById('period').textContent='Today · Demo';document.getElementById('total').textContent='2h 36m';document.getElementById('social').textContent='2h 1m';document.getElementById('other').textContent='21m';document.getElementById('ent').textContent='14m';};
+week.onclick=()=>{week.classList.add('active');day.classList.remove('active');document.getElementById('period').textContent='This Week · Demo';document.getElementById('total').textContent='Example';document.getElementById('social').textContent='Example';document.getElementById('other').textContent='Example';document.getElementById('ent').textContent='Example';};
+</script></body></html>
